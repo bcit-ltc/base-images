@@ -1,3 +1,3 @@
-# LTC Ansible Kubectl Image
+# LTC Images Repo
 
-Simple base image with ansible and kubectl v1.20 pre-configured
+Checkout a branch to view the Dockerfiles
