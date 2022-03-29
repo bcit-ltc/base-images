@@ -7,3 +7,5 @@ RUN set -ex; \
                 ca-certificates \
         ; \
         npm install -g semantic-release @semantic-release/gitlab;
+
+COPY .releaserc .releaserc
