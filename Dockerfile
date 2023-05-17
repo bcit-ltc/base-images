@@ -6,4 +6,4 @@ RUN set -ex; \
                 git-core \
                 ca-certificates \
         ; \
-        npm install -g semantic-release @semantic-release/gitlab;
+        npm install -g semantic-release @semantic-release/gitlab @semantic-release/exec;
