@@ -1,4 +1,4 @@
-FROM node:14-buster-slim
+FROM node:18-buster-slim
 
 RUN set -ex; \
         apt-get update; \
