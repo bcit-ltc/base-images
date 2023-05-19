@@ -1,13 +1,9 @@
-FROM node:alpine
-
-WORKDIR /app
-
-COPY release.json .
+FROM node:20-buster-slim
 
 RUN set -ex; \
-        apk add git; \
-        npm install -g semantic-release; \
-        npm init --force --yes; \
-        npm install     @semantic-release/commit-analyzer \
-                        @semantic-release/exec            \
-                        @semantic-release/gitlab;
+        apt-get update; \
+        apt-get install -y --no-install-recommends \
+                git-core \
+                ca-certificates \
+        ; \
+        npm install -g semantic-release @semantic-release/gitlab @semantic-release/exec;
