@@ -5,5 +5,7 @@ RUN set -ex; \
         apt-get install -y --no-install-recommends \
                 git-core \
                 ca-certificates \
+                curl \
+                jq \
         ; \
         npm install -g semantic-release @semantic-release/gitlab;
