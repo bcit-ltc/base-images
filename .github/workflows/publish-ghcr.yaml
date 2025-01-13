@@ -23,8 +23,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GA_TOKEN }}
-      # - name: Build and push the image
-      #   run: |
-      #     echo "${{ secrets.GA_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-      #     docker build . --tag ghcr.io/bcit-ltc/base-images:$(cat NEXT_VERSION)
-      #     docker push ghcr.io/bcit-ltc/base-images:$(cat NEXT_VERSION)
+      - name: Build and push the image
+        run: |
+          docker build . --tag ghcr.io/bcit-ltc/base-images-semantic-release:latest
+          docker push ghcr.io/bcit-ltc/base-images-semantic-release:latest

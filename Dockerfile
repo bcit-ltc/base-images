@@ -9,4 +9,4 @@ RUN set -ex; \
                 curl \
                 jq \
         ; \
-        npm install -g semantic-release @semantic-release/gitlab @semantic-release/exec;
+        npm install -g semantic-release @semantic-release/exec;
