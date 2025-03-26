@@ -1,0 +1,8 @@
+{
+  "name": "base-images",
+  "engineVersion": "v0.17.0",
+  "sdk": {
+    "source": "python"
+  },
+  "source": "dagger"
+}
