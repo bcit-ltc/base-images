@@ -7,7 +7,7 @@ from dagger import DefaultPath, dag, function, object_type
 @object_type
 class BaseImages:
     @function
-    async def publish_semantic_release(self, source: Annotated[dagger.Directory, DefaultPath("./")]) -> str:
+    async def publish(self, source: Annotated[dagger.Directory, DefaultPath("./")]) -> str:
         """Publish the application container"""
         
         # Publish the image for each tag
