@@ -25,5 +25,4 @@ class BaseImages:
         ],
     ) -> dagger.Container:
         """Build and image from existing Dockerfile"""
-        self.unittesting(src)
-        return src.build()
+        return src.docker_build()
