@@ -28,4 +28,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GA_TOKEN }}
         with:
           cloud-token: ${{ secrets.DAGGER_CLOUD_TOKEN }}
-          args: publish_semantic_release --source=. --args=. publish --address=ghcr.io/bcit-ltc/base-images-semantic-release
+          args: publish_semantic_release
