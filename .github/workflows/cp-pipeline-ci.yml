@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - semantic-release
+      - "*"
 
 permissions:
   contents: read # for checkout
