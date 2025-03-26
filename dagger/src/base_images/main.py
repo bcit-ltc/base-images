@@ -8,11 +8,11 @@ from dagger import DefaultPath, dag, function, object_type
 class BaseImages:
     #publish Image
     @function
-    async def publish(self, source: Annotated[dagger.Directory, DefaultPath("./")]) -> str:
+    async def publish(self, source: Annotated[dagger.Directory, DefaultPath("./")], tag: str) -> str:
         """Publish the application container"""
     
         return await self.build(source).publish(
-            f"ghcr.io/bcit-ltc/base-images-semantic-release:latest"
+            f"ghcr.io/bcit-ltc/base-images-semantic-release:{tag}"
         )
 
     # using a Dockerfile to build and return a container

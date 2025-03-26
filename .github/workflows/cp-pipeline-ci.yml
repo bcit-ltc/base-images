@@ -28,4 +28,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GA_TOKEN }}
         with:
           cloud-token: ${{ secrets.DAGGER_CLOUD_TOKEN }}
-          args: publish
+          args: publish --tag ${{ github.sha }} --tag latest
