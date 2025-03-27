@@ -12,7 +12,7 @@ class BaseImages:
         """Publish the application container"""
     
         return await self.build(source).publish(
-            f"ghcr.io/bcit-ltc/base-images-semantic-release:{tag}"
+            f"ghcr.io/bcit-ltc/semantic-release:{tag}"
         )
 
     # using a Dockerfile to build and return a container
