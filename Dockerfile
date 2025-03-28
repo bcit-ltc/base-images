@@ -10,3 +10,5 @@ RUN set -ex; \
                 jq \
         ; \
         npm install -g semantic-release @semantic-release/gitlab @semantic-release/exec;
+
+COPY .releaserc ./
