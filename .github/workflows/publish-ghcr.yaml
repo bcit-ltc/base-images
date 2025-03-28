@@ -25,5 +25,5 @@ jobs:
           password: ${{ secrets.GA_TOKEN }}
       - name: Build and push the image
         run: |
-          docker build . --tag ghcr.io/bcit-ltc/base-images-semantic-release:latest
-          docker push ghcr.io/bcit-ltc/base-images-semantic-release:latest
+          docker build . --tag ghcr.io/bcit-ltc/semantic-release:gitlab-original
+          docker push ghcr.io/bcit-ltc/semantic-release:gitlab-original
