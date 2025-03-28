@@ -5,14 +5,10 @@
     "tagFormat": "${version}",
     "plugins": [
         "@semantic-release/commit-analyzer",
-        "@semantic-release/release-notes-generator",
-        "@semantic-release/github",
         [
             "@semantic-release/exec",
             {
-                "verifyReleaseCmd": "echo ${nextRelease.version} > NEXT_VERSION",
-                "prepareCmd": "set-version ${nextRelease.version}",
-                "publishCmd": "publish-package"
+                "verifyReleaseCmd": "echo ${nextRelease.version} > NEXT_VERSION"
             }
         ]
     ]
