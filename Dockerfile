@@ -1,5 +1,12 @@
-FROM node:20-alpine3.21
+FROM node:20-buster-slim
 
 RUN set -ex; \
-        apk add git; \
-        npm install -g semantic-release @semantic-release/github @semantic-release/exec; 
+        apt-get update; \
+        apt-get install -y --no-install-recommends \
+                git-core \
+                git-lfs \
+                ca-certificates \
+                curl \
+                jq \
+        ; \
+        npm install -g semantic-release @semantic-release/gitlab @semantic-release/exec;
