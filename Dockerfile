@@ -9,5 +9,4 @@ RUN set -ex; \
         apk add git; \
         npm install -g semantic-release \
         @semantic-release/github \
-        @semantic-release/exec \
-        @semantic-release/release-notes-generator; 
+        @semantic-release/exec; 
