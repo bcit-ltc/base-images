@@ -2,6 +2,10 @@
     "branches": [
         "main"
     ],
+    "repositoryUrl": "",
+    "dryRun": false,
+    "ci": true,
+    "debug": false,
     "tagFormat": "${version}",
     "plugins": [
         "@semantic-release/commit-analyzer",
