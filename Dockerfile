@@ -1,7 +1,9 @@
-FROM node:20-buster-slim
+FROM node:24.6.0-bullseye
+
+# Ensure all packages are up-to-date to reduce vulnerabilities
+RUN apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
 
 RUN set -ex; \
-        apt-get update; \
         apt-get install -y --no-install-recommends \
                 git-core \
                 git-lfs \
@@ -9,6 +11,8 @@ RUN set -ex; \
                 curl \
                 jq \
         ; \
-        npm install -g semantic-release @semantic-release/gitlab @semantic-release/exec;
+        rm -rf /var/lib/apt/lists/*; \
+        npm install -g semantic-release;
 
+# Configuration file
 COPY .releaserc ./
