@@ -13,6 +13,3 @@ RUN set -ex; \
         ; \
         rm -rf /var/lib/apt/lists/*; \
         npm install -g semantic-release @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/github;
-
-# Configuration file
-COPY .releaserc ./
