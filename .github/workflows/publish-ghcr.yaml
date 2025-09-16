@@ -4,18 +4,17 @@ on:
   push:
 
 env:
-  IMAGE_NAME: bcit-ltc/${{ github.ref_name }}
+  IMAGE_REPO: ghcr.io/${{ github.repository_owner }}/${{ github.ref_name }}
 
 jobs:
-
   build-and-push-app-image:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
       id-token: write
-    steps:
 
+    steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
@@ -34,28 +33,25 @@ jobs:
         env:
           DOCKER_METADATA_ANNOTATIONS_LEVELS: manifest,index
         with:
-          images: ${{ env.IMAGE_NAME }}
+          images: ${{ env.IMAGE_REPO }}
           tags: type=sha,format=long
           flavor: |
             latest=true
 
       - uses: docker/build-push-action@v6
-        env:
-          DOCKER_BUILD_RECORD_UPLOAD: false
-          DOCKER_BUILD_SUMMARY: false
         with:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           annotations: ${{ steps.meta.outputs.annotations }}
-          provenance: true    # or could use `attest-build-provenance`` step below
+          provenance: true
           sbom: false
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      # Sign images to ensure authenticity
       - uses: sigstore/cosign-installer@v3
 
       - name: Cosign sign (keyless, by digest)
         env:
           DIGEST: ${{ steps.build.outputs.digest }}
-        run: cosign sign --yes "${IMAGE_NAME}@${DIGEST}"
+        run: cosign sign --yes "${IMAGE_REPO}@${DIGEST}"
