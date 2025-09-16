@@ -1,3 +1,5 @@
-# semantic-release-image
+# LTC base images repo
 
-Basic node image with `semantic-release` and `@semantic-release/github` plugin installed
+A repository for custom or extended container images.
+
+Checkout a branch to view the Dockerfiles. Images are built and pushed to <https://github.com/orgs/bcit-ltc/packages>.
