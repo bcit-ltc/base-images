@@ -1,3 +1,3 @@
 # semantic-release-image
 
-Basic node image with `semantic-release` and `@semantic-release/github` plugin installed
+Extends `https://github.com/codfish/semantic-release-action` with `git-lfs`.

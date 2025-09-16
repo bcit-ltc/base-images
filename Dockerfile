@@ -1,18 +1,11 @@
-FROM node:24.6.0-bullseye
+# Extend the official codfish semantic-release action image
+FROM ghcr.io/codfish/semantic-release-action:latest
 
 # Ensure all packages are up-to-date to reduce vulnerabilities
 RUN apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
 
-RUN set -ex; \
-        apt-get install -y --no-install-recommends \
-                git-core \
-                git-lfs \
-                ca-certificates \
-                curl \
-                jq \
-        ; \
-        rm -rf /var/lib/apt/lists/*; \
-        npm install -g semantic-release;
-
-# Configuration file
-COPY .releaserc ./
+# Install git-lfs
+RUN set -e; \
+    apt-get install -y --no-install-recommends \
+        git-lfs && \
+    rm -rf /var/lib/apt/lists/* && git lfs install --system;
