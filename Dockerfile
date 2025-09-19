@@ -15,9 +15,6 @@ RUN set -ex; \
         rm -rf /var/lib/apt/lists/*; \
         npm install -g semantic-release @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/github;
 
-# Copy semantic-release config
-COPY .releaserc /root/.releaserc
-
 # Add semantic-release wrapper script
 COPY semantic-release-wrapper.sh /usr/local/bin/semantic-release-wrapper.sh
 RUN chmod +x /usr/local/bin/semantic-release-wrapper.sh
