@@ -7,5 +7,3 @@ RUN set -e; \
     apt-get install -y --no-install-recommends \
         git-lfs && \
     rm -rf /var/lib/apt/lists/*
-
-COPY .releaserc.json .releaserc.json
